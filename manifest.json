@@ -14,7 +14,7 @@
   ],*/
 
   "background": {
-    "scripts": ["background.js"]
+    "scripts": ["js/background.js"]
   },
 
   "icons": { "16": "img/chromeboard-16.png", "128": "img/chromeboard-128.png" }
