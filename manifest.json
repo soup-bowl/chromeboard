@@ -21,6 +21,8 @@
     "default_title": "Chromeboard"
   },
   "permissions": [
+    //"https://*/*",
+    //"http://*/* ",
     "storage"
   ]
 }
