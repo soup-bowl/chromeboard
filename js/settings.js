@@ -1,9 +1,8 @@
 $(document).ready(function() {
     document.getElementById("saveS").addEventListener("click",goSettings);
     document.getElementById("sites").value
-    //purgeUserPrefs();
-    //storeUserPrefs(["example.com","dave.com","woohoo.com"]);
-    getUserPrefs();
+    
+    updatePageWithCurrentPrefs();
 });
 
 var storage = chrome.storage.sync;
@@ -23,13 +22,13 @@ function storeUserPrefs(urlCollection) {
         });
 }
 
-function getUserPrefs() {
-    var aaa = storage.get('chromeboardPrefs', function (obj) {
-        //console.log('chromeboardPrefs', obj);
-        return obj.chromeboardPrefs.urlCol;
-    });  
-
-    console.log(aaa);
+function updatePageWithCurrentPrefs() {
+    var prefs = storage.get('chromeboardPrefs', function (obj) {
+        var opt = obj.chromeboardPrefs.urlCol;
+        document.getElementById("sites").value = ArrayToSite( opt );
+        //console.log('chromeboardPrefs', opt);
+    });
+    
 }
 
 function purgeUserPrefs() {
@@ -38,5 +37,15 @@ function purgeUserPrefs() {
 
 function siteToArray(textareaContent) {
     comSepStr = textareaContent.replace(/(\r\n|\n|\r)/gm,",");
-    return comSepStr.split(",");
+    comSepStr2 = comSepStr.split(",");
+    comSepStr3 = comSepStr2.slice(0, -1);
+    return comSepStr3;
+}
+
+function ArrayToSite(arr) {
+    var str = '';
+    arr.forEach(function(element) {
+        str += element + "\r\n";
+    }, this);
+    return str;
 }
