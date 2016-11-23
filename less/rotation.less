@@ -7,44 +7,12 @@ body {
     height: 100%;
 }
 
-#slider {
-    width:100%;
+iframe {
+    border: none;
+    width:100vw;
     height:100%;
-    overflow:hidden;
-
-    #site-collection {
-        width: 200%;
-        position: relative;
-        left: 0;
-        will-change: transform;
-        animation: scroller 10s infinite;
-
-        iframe {
-            border: none;
-            width:100vw;
-            height:100%;
-            position:relative;
-            float:left;
-        }
-    }
+    display: none;
 }
-
-@keyframes scroller {
-  0% {
-    -webkit-transform: translateX(0);
-            transform: translateX(0);
-  }
-  50% {
-    -webkit-transform: translateX(-50%);
-            transform: translateX(-50%);
-  }
-  100% {
-    -webkit-transform: translateX(0);
-            transform: translateX(0);
-  }
-}
-
-
 
 .settings-button {
     position: absolute;
@@ -62,4 +30,8 @@ body {
     &:hover {
         opacity: 1;
     }
+}
+
+.active {
+    display: inline!important;
 }
