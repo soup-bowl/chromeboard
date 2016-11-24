@@ -3,6 +3,7 @@ Turn a Chrome installation into a digital signage board. Using a dedicated exten
 
 # Installation
 To test the extension, installation is relatively simple:
+
 1. Download the zip of this project and extract where desired.
 2. Enable Developer mode (checkbox in Extensions).
 3. Click 'Load unpacked extension...'.
