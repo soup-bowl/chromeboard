@@ -2,7 +2,7 @@ $(document).ready(function() {
     var opt;
     chrome.storage.sync.get('chromeboardPrefs', function (obj) {
         opt = obj.chromeboardPrefs.urlCol;
-        console.log('chromeboardPrefs', opt);
+        //console.log('chromeboardPrefs', opt);
 
         for (var i = 0; i < opt.length; i++) {
             $("#site-collection").append("<iframe id=\"site-" + (i + 1) + "\" src=\"" + opt[i] + "\"></iframe>")
@@ -12,6 +12,23 @@ $(document).ready(function() {
     });
       
 });
+
+$("#settclick").click(
+    function(event) {
+        event.preventDefault();
+        $('.settings-modal-close-shadow').addClass('active');
+        $('.settings-modal').addClass('active');
+    }
+);
+
+$(".settings-modal-close-shadow").click(
+    function(event) {
+        event.preventDefault();
+        $('.settings-modal-close-shadow').removeClass('active');
+        $('.settings-modal').removeClass('active');
+    }
+);
+
 
 function slide(repeats, count, current) {
     nextActive = current + 1;
