@@ -19,3 +19,14 @@ Once installed, a new icon will appear to the right of the Chrome address bar, c
 Unfortunately this can be a limitation issued by the website. This extension uses iframes to show the corresponding website content in the tab page. However, websites have a right to issue a header request blocking such iframe embeds. As such, the extension will simply display a blank page.
 
 To determine if this is the cause, try refreshing the tab page with inspector console open. If you get "Refused to display <website> in a frame because it set 'X-Frame-Options' to 'SAMEORIGIN'", then this page will unfortunately not allow embedding.
+
+## How can I use this headless (kiosk) on a single-purpose device?
+Once the extension is installed, clicking on the icon takes you to the tab rotation page. Drag the app page icon (to the right of 'chrome-extension', a circle with an i in it) to the home button to set it as your homepage, or alternatively copy the address and set it as your homepage in options. Now when you re-open Chrome, it should immediately go to the tab rotation page.
+
+Now for a Linux machine, create a shell script to execute the following command (assumed Chromium, change if necessary).
+
+```bash
+chromium-browser -kiosk --disable-session-crashed-bubble --disable-infobars
+```
+
+This will open Chrome/Chromium in kiosk mode, and hopefully open the rotation page once loaded. To escape, press ALT-F4. 
