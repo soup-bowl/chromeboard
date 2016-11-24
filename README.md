@@ -30,3 +30,7 @@ chromium-browser -kiosk --disable-session-crashed-bubble --disable-infobars
 ```
 
 This will open Chrome/Chromium in kiosk mode, and hopefully open the rotation page once loaded. To escape, press ALT-F4. 
+
+___
+
+This project is licensed under MIT, so please feel free to do what you wish. If you would like to see improvements or new features, please feel free to submit an issue, fork or submit a pull request.
