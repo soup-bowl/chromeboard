@@ -1,6 +1,6 @@
 {
   "name": "Chromeboard",
-  "version": "0.1",
+  "version": "0.2",
   "manifest_version": 2,
   "description": "Turn a Chrome installation into a digital signage board.",
   "homepage_url": "https://github.com/soup-bowl/Chromeboard",
