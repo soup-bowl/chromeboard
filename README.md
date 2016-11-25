@@ -1,6 +1,8 @@
 # Chromeboard
 Turn a Chrome installation into a digital signage board. Using a dedicated extension page, the extension will cycle user-selected websites continuously. Intended for wallboards that cycle through pages on display.
 
+![Chromeboard app demonstration](http://i.imgur.com/ua5ieII.gif, "Chromeboard demo gif")
+
 # Installation
 To use the last build version (Version 0.1), download `_output/Chromeboard.crx` and drag it into the extensions page of Chrome to install. As this is a non-store release, Chrome will prompt you to check the application upon each Chrome launch. 
 
