@@ -2,10 +2,13 @@ $(document).ready(function() {
     var opt;
     chrome.storage.sync.get('chromeboardPrefs', function (obj) {
         opt = obj.chromeboardPrefs.urlCol;
-        //console.log('chromeboardPrefs', opt);
 
-        for (var i = 0; i < opt.length; i++) {
-            $("#site-collection").append("<iframe id=\"site-" + (i + 1) + "\" src=\"" + opt[i] + "\"></iframe>")
+        if (opt.length > 0) {
+            for (var i = 0; i < opt.length; i++) {
+                $("#site-collection").append("<iframe id=\"site-" + (i + 1) + "\" src=\"" + opt[i] + "\"></iframe>");
+            }
+        } else {
+            $("#site-collection").append("<iframe id=\"site-1\" src=\"blankingpage.html\" class=\"active\"></iframe>");
         }
 
         slide(10, opt.length, -1);
