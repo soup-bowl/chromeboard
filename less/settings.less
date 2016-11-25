@@ -6,6 +6,19 @@ body {
     background-color: #e2e2e2;
 }
 
+hr {
+    border: none;
+    border-top: solid 0.01em lightgray;
+    margin: 0 2em 0 2em;
+}
+
+p.warningbar {
+    border:solid 0.25em yellow;
+    background-color: yellow;
+    color: #6b6b41;
+    padding: 0.5em;
+}
+
 .headline {
     background-color: black;
     color: white;
@@ -21,9 +34,14 @@ body {
 }
 
 .settingsnippet {
-    input, button {
+    .indent {
         margin: 1em;
-        margin-left: 2.5em;
+        margin-left: 1em;
+        padding-left: 1em;
+        border-left: solid 1px lightgray;
+    }
+    .noline {
+        border-left: none;
     }
     h2 {
         color: #383838;

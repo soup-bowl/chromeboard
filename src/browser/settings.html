@@ -8,16 +8,25 @@
     </div>
     <div class="settingsnippet">
         <h2>Site Rotation (seperate by commas)</h2>
-        <input id="sites" type="text" placeholder="http://example.com,http://example2.com"/> 
+        <div class="indent"> 
+            <input id="sites" type="text" placeholder="http://example.com,http://example2.com"/> 
+            <p class="warningbar">Websites can be configured to block the embedding of their content outside of the original website. This can cause some websites not to show up. </p>
+        </div>
     </div>
     
     <div class="settingsnippet">
         <h2>Transition Time (seconds)</h2>
-        <input id="transition" type="number" placeholder="30" /> 
+        <div class="indent"> 
+            <input id="transition" type="number" placeholder="30" /> 
+        </div>
     </div>
 
+    <hr>
+
     <div class="settingsnippet">
-        <button class="push" id="saveS" type="button">Submit</button>
+        <div class="indent noline">
+            <button class="push" id="saveS" type="button">Submit</button>
+        </div>
     </div>
 
     <script src="/js/jquery-3.1.1.min.js"></script>
