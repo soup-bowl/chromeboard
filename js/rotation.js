@@ -11,29 +11,25 @@ $(document).ready(function() {
             $("#site-collection").append("<iframe id=\"site-1\" src=\"blankingpage.html\" class=\"active\"></iframe>");
         }
 
-        slide(10, opt.length, -1);
+        slide(10, opt.length, -1, obj.chromeboardPrefs.transitionTime);
     });
       
 });
 
-$("#settclick").click(
-    function(event) {
-        event.preventDefault();
-        $('.settings-modal-close-shadow').addClass('active');
-        $('.settings-modal').addClass('active');
-    }
-);
+$("#settclick").click(function(event) {
+    event.preventDefault();
+    $('.settings-modal-close-shadow').addClass('active');
+    $('.settings-modal').addClass('active');
+});
 
-$(".settings-modal-close-shadow").click(
-    function(event) {
-        event.preventDefault();
-        $('.settings-modal-close-shadow').removeClass('active');
-        $('.settings-modal').removeClass('active');
-    }
-);
+$(".settings-modal-close-shadow").click(function(event) {
+    event.preventDefault();
+    $('.settings-modal-close-shadow').removeClass('active');
+    $('.settings-modal').removeClass('active');
+});
 
 
-function slide(repeats, count, current) {
+function slide(repeats, count, current, duration) {
     nextActive = current + 1;
     if (nextActive > (count -1)) {
         nextActive = 0;
@@ -49,9 +45,9 @@ function slide(repeats, count, current) {
         
         window.setTimeout(
           function(){
-            slide(repeats, count, nextActive)
+            slide(repeats, count, nextActive, duration)
           },
-          30000
+          (duration * 1000)
         );
     }
 }

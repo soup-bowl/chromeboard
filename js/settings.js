@@ -8,15 +8,19 @@ $(document).ready(function() {
 var storage = chrome.storage.sync;
 
 function goSettings() {
-    console.log(
-        siteToArray(document.getElementById("sites").value)
+    storeUserPrefs( 
+        siteToArray(document.getElementById("sites").value),
+        document.getElementById("transition").value
     );
-    storeUserPrefs( siteToArray(document.getElementById("sites").value) );
 }
 
-function storeUserPrefs(urlCollection) {
+function storeUserPrefs(urlCollection, transitionTime) {
     storage.clear();
-    var key='chromeboardPrefs', testPrefs = {'urlCol': urlCollection};
+    var key='chromeboardPrefs', testPrefs = 
+    {
+        'urlCol': urlCollection,
+        'transitionTime': transitionTime 
+    };
         storage.set({"chromeboardPrefs": testPrefs}, function() {
             //console.log('Saved', key, testPrefs);
         });
@@ -26,7 +30,7 @@ function updatePageWithCurrentPrefs() {
     var prefs = storage.get('chromeboardPrefs', function (obj) {
         var opt = obj.chromeboardPrefs.urlCol;
         document.getElementById("sites").value = ArrayToSite( opt );
-        //console.log('chromeboardPrefs', opt);
+        document.getElementById("transition").value = obj.chromeboardPrefs.transitionTime;
     });
     
 }
