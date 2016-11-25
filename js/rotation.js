@@ -2,8 +2,8 @@ $(document).ready(function() {
     var opt;
     chrome.storage.sync.get('chromeboardPrefs', function (obj) {
         opt = obj.chromeboardPrefs.urlCol;
-
-        if (opt.length > 0) {
+        
+        if (opt.length > 0 && opt != "") {
             for (var i = 0; i < opt.length; i++) {
                 $("#site-collection").append("<iframe id=\"site-" + (i + 1) + "\" src=\"" + opt[i] + "\"></iframe>");
             }
@@ -26,6 +26,7 @@ $(".settings-modal-close-shadow").click(function(event) {
     event.preventDefault();
     $('.settings-modal-close-shadow').removeClass('active');
     $('.settings-modal').removeClass('active');
+    window.location.reload();
 });
 
 
@@ -33,6 +34,10 @@ function slide(repeats, count, current, duration) {
     nextActive = current + 1;
     if (nextActive > (count -1)) {
         nextActive = 0;
+    }
+
+    if (duration < 1) {
+        duration = 1;
     }
 
     if (repeats > 0) {
