@@ -1,0 +1,53 @@
+// out: ../css/settings.css, compress: true, sourceMap: true
+
+body {
+    padding: 0;
+    margin: 0;
+    background-color: #e2e2e2;
+}
+
+.headline {
+    background-color: black;
+    color: white;
+    padding: 0.1em 0.5em 0.1em 0.5em;
+    
+    img {
+        height: 2em;
+        padding: 0 0.5em 0 0.5em;
+    }
+    h1 {
+        display: inline;   
+    }
+}
+
+.settingsnippet {
+    input, button {
+        margin: 1em;
+        margin-left: 2.5em;
+    }
+    h2 {
+        color: #383838;
+        font-size: 2em;
+        margin-left: 0.5em;
+    }
+    #sites {
+        width: 50em;
+    }
+}
+
+button {
+    &.push {
+        background-color: silver;
+        border: none;
+        border-bottom: solid 0.25em #999;
+        padding: 0.5em;
+        font-size: 1em;
+
+        &:active {
+            background-color:pink;
+            border-bottom: none;
+            border-top: solid 0.25em silver;
+            background-color: #999;
+        }
+    }
+}

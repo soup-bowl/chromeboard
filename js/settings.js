@@ -40,16 +40,15 @@ function purgeUserPrefs() {
 }
 
 function siteToArray(textareaContent) {
-    comSepStr = textareaContent.replace(/(\r\n|\n|\r)/gm,",");
-    comSepStr2 = comSepStr.split(",");
-    comSepStr3 = comSepStr2.slice(0, -1);
-    return comSepStr3;
+    comSepStr = textareaContent.split(",");
+    return comSepStr;
 }
 
 function ArrayToSite(arr) {
     var str = '';
     arr.forEach(function(element) {
-        str += element + "\r\n";
+        str += element + ",";
     }, this);
-    return str;
+    var str2 = str.slice(0, -1);
+    return str2;
 }

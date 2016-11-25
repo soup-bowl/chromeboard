@@ -1,15 +1,24 @@
 <head>
     <title>Settings - Chromeboard</title>
+    <link rel="stylesheet" href="/css/settings.css">
 </head>
 <body>
-    <h1>Chromeboard Configuration</h1>
-    <label for="sites">Site Rotation (seperate by line break)</label>
-    <textarea name="sites" id="sites"></textarea>
+    <div class="headline">
+        <h1>Chromeboard Configuration</h1>
+    </div>
+    <div class="settingsnippet">
+        <h2>Site Rotation (seperate by commas)</h2>
+        <input id="sites" type="text" /> 
+    </div>
     
-    <label for="transition-time">Transition Time (seconds):</label>
-    <input id="transition" type="number" />
-    
-    <a href="#" id="saveS">Submit</a>
+    <div class="settingsnippet">
+        <h2>Transition Time (seconds)</h2>
+        <input id="transition" type="number" /> 
+    </div>
+
+    <div class="settingsnippet">
+        <button class="push" id="saveS" type="button">Submit</button>
+    </div>
 
     <script src="/js/jquery-3.1.1.min.js"></script>
     <script src="/js/settings.js"></script>
