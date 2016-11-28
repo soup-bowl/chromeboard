@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    applyTranslations();
     var opt;
     chrome.storage.sync.get('chromeboardPrefs', function (obj) {
         opt = obj.chromeboardPrefs.urlCol;
@@ -29,6 +30,10 @@ $(".settings-modal-close-shadow").click(function(event) {
     window.location.reload();
 });
 
+function applyTranslations() {
+    var tsl = chrome.i18n;
+    document.getElementById("settclick").innerHTML = tsl.getMessage("rSettings");
+}
 
 function slide(repeats, count, current, duration) {
     nextActive = current + 1;

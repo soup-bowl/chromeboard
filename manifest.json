@@ -1,17 +1,15 @@
 {
-  "name": "Chromeboard",
+  "name": "__MSG_appName__",
   "version": "0.2",
   "manifest_version": 2,
-  "description": "Turn a Chrome installation into a digital signage board.",
+  "description": "__MSG_appDesc__",
   "homepage_url": "https://github.com/soup-bowl/Chromeboard",
   "icons": {
     "16": "icons/chromeboard-16.png",
-    //"48": "icons/icon48.png",
     "128": "icons/chromeboard-128.png"
   },
   "default_locale": "en",
   "background": {
-    //"page": "src/bg/background.html",
     "scripts": ["js/background.js"],
     "persistent": true
   },
@@ -21,8 +19,6 @@
     "default_title": "Chromeboard"
   },
   "permissions": [
-    //"https://*/*",
-    //"http://*/* ",
     "storage"
   ]
 }

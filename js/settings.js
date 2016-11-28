@@ -1,9 +1,20 @@
 $(document).ready(function() {
+    applyTranslations();
+    
     document.getElementById("saveS").addEventListener("click",goSettings);
     document.getElementById("sites").value
     
     updatePageWithCurrentPrefs();
 });
+
+function applyTranslations() {
+    var tsl = chrome.i18n;
+    document.getElementById("title").innerHTML      = tsl.getMessage("appName") + " " + tsl.getMessage("cbSettingsTitle");
+    document.getElementById("siterotate").innerHTML = tsl.getMessage("cbSettingsSiteRotation");
+    document.getElementById("srwarning").innerHTML  = tsl.getMessage("cbSettingsSiteRotationWarning");
+    document.getElementById("transtime").innerHTML  = tsl.getMessage("cbSettingsSiteTransitionTime");
+    document.getElementById("saveS").innerHTML      = tsl.getMessage("cbSettingsSiteSubmit");
+}
 
 var storage = chrome.storage.sync;
 

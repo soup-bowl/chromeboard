@@ -4,18 +4,18 @@
 </head>
 <body>
     <div class="headline">
-        <h1>Chromeboard Configuration</h1>
+        <h1 id="title">Chromeboard Configuration</h1>
     </div>
     <div class="settingsnippet">
-        <h2>Site Rotation (seperate by commas)</h2>
+        <h2 id="siterotate">Site Rotation (seperate by commas)</h2>
         <div class="indent"> 
             <input id="sites" type="text" placeholder="http://example.com,http://example2.com"/> 
-            <p class="warningbar">Websites can be configured to block the embedding of their content outside of the original website. This can cause some websites not to show up. </p>
+            <p id="srwarning" class="warningbar">Websites can be configured to block the embedding of their content outside of the original website. This can cause some websites not to show up. </p>
         </div>
     </div>
     
     <div class="settingsnippet">
-        <h2>Transition Time (seconds)</h2>
+        <h2 id="transtime">Transition Time (seconds)</h2>
         <div class="indent"> 
             <input id="transition" type="number" placeholder="30" /> 
         </div>
