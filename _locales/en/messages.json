@@ -43,7 +43,7 @@
     "description":"Short description shown if the user does not have any websites selected."
   },
   "cbBlankingBullet1": {
-    "message": "Click 'Settings' at the top right of this page.", 
+    "message": "Click the cogwheel at the top right of this page.", 
     "description":"First bullet shown if the user does not have any websites selected."
   },
   "cbBlankingBullet2": {

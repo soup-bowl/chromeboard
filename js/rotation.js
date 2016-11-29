@@ -32,7 +32,8 @@ $(".settings-modal-close-shadow").click(function(event) {
 
 function applyTranslations() {
     var tsl = chrome.i18n;
-    document.getElementById("settclick").innerHTML = tsl.getMessage("rSettings");
+    document.getElementById("settclick").setAttribute('aria-label', tsl.getMessage("rSettings"));
+    document.getElementById("settclick").title = tsl.getMessage("rSettings");
 }
 
 function slide(repeats, count, current, duration) {
