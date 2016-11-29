@@ -35,6 +35,10 @@
   },
   // Blanking page
   "cbBlankingTitle": {
+    "message": "Blanking page", 
+    "description":"Title of the blank site box warning page."
+  },
+  "cbBlankingHeadline": {
     "message": "No sites", 
     "description":"Headline shown if the user does not have any websites selected."
   },

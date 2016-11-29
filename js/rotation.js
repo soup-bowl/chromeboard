@@ -32,6 +32,7 @@ $(".settings-modal-close-shadow").click(function(event) {
 
 function applyTranslations() {
     var tsl = chrome.i18n;
+    document.title = tsl.getMessage("appName");
     document.getElementById("settclick").setAttribute('aria-label', tsl.getMessage("rSettings"));
     document.getElementById("settclick").title = tsl.getMessage("rSettings");
 }

@@ -9,6 +9,7 @@ $(document).ready(function() {
 
 function applyTranslations() {
     var tsl = chrome.i18n;
+    document.title                                  = tsl.getMessage("cbSettingsTitle") + " - " + tsl.getMessage("appName");
     document.getElementById("title").innerHTML      = tsl.getMessage("appName") + " " + tsl.getMessage("cbSettingsTitle");
     document.getElementById("siterotate").innerHTML = tsl.getMessage("cbSettingsSiteRotation");
     document.getElementById("srwarning").innerHTML  = tsl.getMessage("cbSettingsSiteRotationWarning");
