@@ -1,7 +1,7 @@
 $(document).ready(function() {
     applyTranslations();
     
-    document.getElementById("saveS").addEventListener("click",goSettings);
+    document.getElementById("btnSave").addEventListener("click",goSettings);
     document.getElementById("sites").value
     
     updatePageWithCurrentPrefs();
@@ -9,12 +9,14 @@ $(document).ready(function() {
 
 function applyTranslations() {
     var tsl = chrome.i18n;
+    var warningTriangle = "<i class=\"fa fa-exclamation-triangle fa-fw\" aria-hidden=\"true\"></i> ";
+
     document.title                                  = tsl.getMessage("cbSettingsTitle") + " - " + tsl.getMessage("appName");
     document.getElementById("title").innerHTML      = tsl.getMessage("appName") + " " + tsl.getMessage("cbSettingsTitle");
     document.getElementById("siterotate").innerHTML = tsl.getMessage("cbSettingsSiteRotation");
-    document.getElementById("srwarning").innerHTML  = tsl.getMessage("cbSettingsSiteRotationWarning");
+    document.getElementById("srwarning").innerHTML  = warningTriangle + tsl.getMessage("cbSettingsSiteRotationWarning");
     document.getElementById("transtime").innerHTML  = tsl.getMessage("cbSettingsSiteTransitionTime");
-    document.getElementById("saveS").innerHTML      = tsl.getMessage("cbSettingsSiteSubmit");
+    document.getElementById("btnSave").innerHTML    = tsl.getMessage("cbSettingsSiteSubmit");    
 }
 
 var storage = chrome.storage.sync;

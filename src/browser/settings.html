@@ -1,5 +1,6 @@
 <head>
     <title>Settings - Chromeboard</title>
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
     <link rel="stylesheet" href="/css/settings.css">
 </head>
 <body>
@@ -10,7 +11,7 @@
         <h2 id="siterotate">Site Rotation (seperate by commas)</h2>
         <div class="indent"> 
             <input id="sites" type="text" placeholder="http://example.com,http://example2.com"/> 
-            <p id="srwarning" class="warningbar">Websites can be configured to block the embedding of their content outside of the original website. This can cause some websites not to show up. </p>
+            <p id="srwarning" class="noticebar warning">Websites can be configured to block the embedding of their content outside of the original website. This can cause some websites not to show up. </p>
         </div>
     </div>
     
@@ -25,7 +26,7 @@
 
     <div class="settingsnippet">
         <div class="indent noline">
-            <button class="push" id="saveS" type="button">Submit</button>
+            <button class="push main" id="btnSave" type="button">Submit</button>
         </div>
     </div>
 

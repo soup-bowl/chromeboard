@@ -7,12 +7,10 @@
     "message": "Turn a Chrome installation into a digital signage board.", 
     "description":"The description of the application, displayed in the web store."
   },
-  // Rotation page
   "rSettings": {
     "message": "Settings",
     "description": "Text label that appears at the top right."
   },
-  // Settings
   "cbSettingsTitle": {
     "message": "Configuration",
     "description": "The title of the Chromeboard configuration screen, shown at the top in the black bar. App title is added as a prefix."
@@ -33,7 +31,6 @@
     "message": "Submit",
     "description": "The settings save button."
   },
-  // Blanking page
   "cbBlankingTitle": {
     "message": "Blanking page", 
     "description":"Title of the blank site box warning page."

@@ -12,11 +12,25 @@ hr {
     margin: 0 2em 0 2em;
 }
 
-p.warningbar {
-    border:solid 0.25em yellow;
-    background-color: yellow;
-    color: #6b6b41;
+// Messages displayed to notify the user of something, with 4 levels.
+.noticebar {
     padding: 0.5em;
+    &.info {
+        background-color: lightskyblue;
+        color: dodgerblue;
+    }
+    &.success {
+        background-color: #89d889;
+        color: darkgreen;
+    }
+    &.warning {
+        background-color: yellow;
+        color: #6b6b41;
+    }
+    &.error {
+        background-color: red;
+        color: #650000;
+    }
 }
 
 .headline {
@@ -53,19 +67,34 @@ p.warningbar {
     }
 }
 
+// Some custom styling for buttons.
 button {
     &.push {
-        background-color: silver;
         border: none;
-        border-bottom: solid 0.25em #999;
         padding: 0.5em;
         font-size: 1em;
+    }
+
+    &.normal {
+        background-color: silver;
+        border-bottom: solid 0.25em #999;
 
         &:active {
-            background-color:pink;
             border-bottom: none;
-            border-top: solid 0.25em silver;
+            //border-top: solid 0.25em silver;
             background-color: #999;
+        }
+    }
+
+    &.main {
+        color: white;
+        background-color: blue;
+        border-bottom: solid 0.25em darkblue;
+
+        &:active {
+            border-bottom: none;
+            //border-top: solid 0.25em blue;
+            background-color: darkblue;
         }
     }
 }
