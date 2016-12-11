@@ -29,17 +29,11 @@ $(".settings-modal-close-shadow").click(function(event) {
 
 // -- Lockstate handlers --
 $("#setlockstate").click(function(event) {
-    event.preventDefault();
-    $('#sb-unlocked').addClass('hidden');
-    $('#sb-locked').removeClass('hidden');
-    //window.alert("TODO");
+    toggleLockstate(event);
 });
 
 $("#setunlockstate").click(function(event) {
-    event.preventDefault();
-    $('#sb-unlocked').removeClass('hidden');
-    $('#sb-locked').addClass('hidden');
-    //window.alert("TODO");
+    toggleLockstate(event);
 });
 
 $(document).on({
@@ -61,6 +55,17 @@ function toggleSettingsFrame(event) {
     } else {
         $('.settings-modal-close-shadow').addClass('active');
         $('.settings-modal').addClass('active');
+    }
+}
+
+function toggleLockstate(event) {
+    event.preventDefault();
+    if( $('#sb-unlocked').hasClass('hidden') ) {
+        $('#sb-unlocked').removeClass('hidden');
+        $('#sb-locked').addClass('hidden');
+    } else {
+        $('#sb-unlocked').addClass('hidden');
+        $('#sb-locked').removeClass('hidden');
     }
 }
 
