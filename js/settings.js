@@ -26,6 +26,10 @@ function goSettings() {
         siteToArray(document.getElementById("sites").value),
         document.getElementById("transition").value
     );
+
+    if (window.frameElement) {
+        parent.toggleSettingsFrame(event);
+    }
 }
 
 function storeUserPrefs(urlCollection, transitionTime) {
