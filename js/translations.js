@@ -1,6 +1,6 @@
 $(document).ready(function() {
     setTitle();
-    $('h1, h2, p, button').each(function() {
+    $('h1, h2, p, li, button').each(function() {
         if( $(this).data("translation") ) {
             getTranslation( $(this) );
         }
