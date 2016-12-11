@@ -46,6 +46,10 @@ $(document).on({
 
 // --  End of lockstate handlers --
 
+/**
+ * Opens and closes the modal settings IFrame.
+ * @param {event} event
+ */
 function toggleSettingsFrame(event) {
     event.preventDefault();
     if( $('.settings-modal').hasClass('active') ) {
@@ -58,14 +62,22 @@ function toggleSettingsFrame(event) {
     }
 }
 
+/**
+ * Enables and disables the locked rotation state.
+ * @param {event} event
+ */
 function toggleLockstate(event) {
     event.preventDefault();
     if( $('#sb-unlocked').hasClass('hidden') ) {
         $('#sb-unlocked').removeClass('hidden');
         $('#sb-locked').addClass('hidden');
+
+        $('.noclick-zone').remove();
     } else {
         $('#sb-unlocked').addClass('hidden');
         $('#sb-locked').removeClass('hidden');
+        
+        $('body').append( $('<div/>').addClass("noclick-zone") );
     }
 }
 
