@@ -3,7 +3,6 @@ $(document).ready(function() {
     $('h1, h2, p, button').each(function() {
         if( $(this).data("translation") ) {
             getTranslation( $(this) );
-            console.log("Teacup", $(this).data('translation') );
         }
     });
 });
