@@ -19,16 +19,11 @@ $(document).ready(function() {
 
 // -- Settings button and background handlers --
 $("#settclick").click(function(event) {
-    event.preventDefault();
-    $('.settings-modal-close-shadow').addClass('active');
-    $('.settings-modal').addClass('active');
+    toggleSettingsFrame(event);
 });
 
 $(".settings-modal-close-shadow").click(function(event) {
-    event.preventDefault();
-    $('.settings-modal-close-shadow').removeClass('active');
-    $('.settings-modal').removeClass('active');
-    window.location.reload();
+    toggleSettingsFrame(event);
 });
 // -- End of settings button and background handlers --
 
@@ -56,6 +51,18 @@ $(document).on({
 });
 
 // --  End of lockstate handlers --
+
+function toggleSettingsFrame(event) {
+    event.preventDefault();
+    if( $('.settings-modal').hasClass('active') ) {
+        $('.settings-modal-close-shadow').removeClass('active');
+        $('.settings-modal').removeClass('active');
+        window.location.reload();
+    } else {
+        $('.settings-modal-close-shadow').addClass('active');
+        $('.settings-modal').addClass('active');
+    }
+}
 
 function applyTranslations() {
     var tsl = chrome.i18n;

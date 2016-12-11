@@ -1,22 +1,22 @@
 <head>
-    <title>Settings - Chromeboard</title>
+    <title data-translation="rSettings">Settings - Chromeboard</title>
     <link rel="stylesheet" href="/css/font-awesome.min.css">
     <link rel="stylesheet" href="/css/settings.css">
 </head>
 <body>
     <div class="headline">
-        <h1 id="title">Chromeboard Configuration</h1>
+        <h1 id="title" data-translation="cbSettingsTitle">Chromeboard Configuration</h1>
     </div>
     <div class="settingsnippet">
-        <h2 id="siterotate">Site Rotation (seperate by commas)</h2>
+        <h2 id="siterotate" data-translation="cbSettingsSiteRotation">Site Rotation (seperate by commas)</h2>
         <div class="indent"> 
             <input id="sites" type="text" placeholder="http://example.com,http://example2.com"/> 
-            <p id="srwarning" class="noticebar warning">Websites can be configured to block the embedding of their content outside of the original website. This can cause some websites not to show up. </p>
+            <p id="srwarning" class="noticebar warning" data-translation="cbSettingsSiteRotationWarning">Websites can be configured to block the embedding of their content outside of the original website. This can cause some websites not to show up. </p>
         </div>
     </div>
     
     <div class="settingsnippet">
-        <h2 id="transtime">Transition Time (seconds)</h2>
+        <h2 id="transtime" data-translation="cbSettingsSiteTransitionTime">Transition Time (seconds)</h2>
         <div class="indent"> 
             <input id="transition" type="number" placeholder="30" /> 
         </div>
@@ -26,10 +26,11 @@
 
     <div class="settingsnippet">
         <div class="indent noline">
-            <button class="push main" id="btnSave" type="button">Submit</button>
+            <button class="push main" id="btnSave" type="button" data-translation="cbSettingsSiteSubmit">Submit</button>
         </div>
     </div>
 
     <script src="/js/jquery-3.1.1.min.js"></script>
+    <script src="/js/translations.js"></script>
     <script src="/js/settings.js"></script>
 </body>
