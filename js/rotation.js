@@ -2,7 +2,7 @@ $(document).ready(function() {
     applyTranslations();
     var opt;
     chrome.storage.sync.get('chromeboardPrefs', function (obj) {
-        opt = obj.chromeboardPrefs.urlCol;
+        opt = siteToArray(obj.chromeboardPrefs.urlCol);
         
         if (opt.length > 0 && opt != "") {
             for (var i = 0; i < opt.length; i++) {
@@ -118,4 +118,9 @@ function slide(repeats, count, current, duration) {
           (duration * 1000)
         );
     }
+}
+
+function siteToArray(textareaContent) {
+    comSepStr = textareaContent.split(",");
+    return comSepStr;
 }
