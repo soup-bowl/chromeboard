@@ -11,9 +11,20 @@
     </div>
     
     <div class="settings-button">
-        <a id="settclick" href="/src/browser/settings.html" aria-label="Settings" title="Settings">
-            <i class="fa fa-cog" aria-hidden="true"></i>
-        </a>
+        <div id="sb-locked" class="hidden">
+            <a id="setunlockstate" href="#" aria-label="Screen is locked" title="Screen is locked">
+                <i class="fa fa-lock" aria-hidden="true"></i>
+            </a>
+        </div>
+        <div id="sb-unlocked">
+            <a id="setlockstate" href="#" aria-label="Screen is unlocked" title="Screen is unlocked">
+                <i class="fa fa-unlock" aria-hidden="true"></i>
+            </a>
+            |
+            <a id="settclick" href="/src/browser/settings.html" aria-label="Settings" title="Settings">
+                <i class="fa fa-cog" aria-hidden="true"></i>
+            </a>
+        </div>
     </div>
 
     <div id="slider">

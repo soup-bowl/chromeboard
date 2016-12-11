@@ -17,6 +17,7 @@ $(document).ready(function() {
       
 });
 
+// -- Settings button and background handlers --
 $("#settclick").click(function(event) {
     event.preventDefault();
     $('.settings-modal-close-shadow').addClass('active');
@@ -29,12 +30,43 @@ $(".settings-modal-close-shadow").click(function(event) {
     $('.settings-modal').removeClass('active');
     window.location.reload();
 });
+// -- End of settings button and background handlers --
+
+// -- Lockstate handlers --
+$("#setlockstate").click(function(event) {
+    event.preventDefault();
+    $('#sb-unlocked').addClass('hidden');
+    $('#sb-locked').removeClass('hidden');
+    //window.alert("TODO");
+});
+
+$("#setunlockstate").click(function(event) {
+    event.preventDefault();
+    $('#sb-unlocked').removeClass('hidden');
+    $('#sb-locked').addClass('hidden');
+    //window.alert("TODO");
+});
+
+$(document).on({
+    "contextmenu": function(e) {
+        if($('#sb-unlocked').hasClass('hidden')) {
+            e.preventDefault();
+        }
+    }
+});
+
+// --  End of lockstate handlers --
 
 function applyTranslations() {
     var tsl = chrome.i18n;
     document.title = tsl.getMessage("appName");
     document.getElementById("settclick").setAttribute('aria-label', tsl.getMessage("rSettings"));
     document.getElementById("settclick").title = tsl.getMessage("rSettings");
+
+    document.getElementById("setlockstate").setAttribute('aria-label', tsl.getMessage("rScreenUnlocked"));
+    document.getElementById("setlockstate").title = tsl.getMessage("rScreenUnlocked");
+    document.getElementById("setunlockstate").setAttribute('aria-label', tsl.getMessage("rScreenLocked"));
+    document.getElementById("setunlockstate").title = tsl.getMessage("rScreenLocked");
 }
 
 function slide(repeats, count, current, duration) {

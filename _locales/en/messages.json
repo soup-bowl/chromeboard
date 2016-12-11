@@ -11,6 +11,14 @@
     "message": "Settings",
     "description": "Text label that appears at the top right."
   },
+  "rScreenLocked": {
+    "message": "Screen is locked",
+    "description": "Text label that appears on the lock tooltip when screen is locked."
+  },
+  "rScreenUnlocked": {
+    "message": "Screen is unlocked",
+    "description": "Text label that appears on the lock tooltip when screen is unlocked."
+  },
   "cbSettingsTitle": {
     "message": "Configuration",
     "description": "The title of the Chromeboard configuration screen, shown at the top in the black bar. App title is added as a prefix."
