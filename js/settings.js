@@ -31,10 +31,9 @@ function goSettings(save = true) {
                 siteCollection.push(value.value);
             }
         });
-        var sitelist = ArrayToSite(siteCollection);
 
         storeUserPrefs( 
-            ArrayToSite(siteCollection),
+            siteCollection,
             document.getElementById("transition").value
         );
     }
@@ -69,8 +68,7 @@ function updatePageWithCurrentPrefs() {
         var opt = obj.chromeboardPrefs.urlCol;
             
         if (opt != "") {
-            var allSites = siteToArray(opt);
-            $.each(allSites, function( index, value ) {
+            $.each(opt, function( index, value ) {
                 createSiteInputElement('#sortable', index, value)
             });
         } else {
@@ -87,28 +85,6 @@ function updatePageWithCurrentPrefs() {
  */
 function purgeUserPrefs() {
     storage.clear();
-}
-
-/**
- * Receives a CSV of URLs and returns an array.
- * @param {string} textareaContent
- */
-function siteToArray(textareaContent) {
-    comSepStr = textareaContent.split(",");
-    return comSepStr;
-}
-
-/**
- * Returns a CSV from an array of sites.
- * @param {array} arr
- */
-function ArrayToSite(arr) {
-    var str = '';
-    arr.forEach(function(element) {
-        str += element + ",";
-    }, this);
-    var str2 = str.slice(0, -1);
-    return str2;
 }
 
 /**

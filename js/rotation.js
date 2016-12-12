@@ -1,7 +1,7 @@
 $(document).ready(function() {
     var opt;
     chrome.storage.sync.get('chromeboardPrefs', function (obj) {
-        opt = siteToArray(obj.chromeboardPrefs.urlCol);
+        opt = obj.chromeboardPrefs.urlCol;
         
         if (opt.length > 0 && opt != "") {
             for (var i = 0; i < opt.length; i++) {
@@ -120,13 +120,4 @@ function slide(repeats, count, current, duration) {
           (duration * 1000)
         );
     }
-}
-
-/**
- * Receives a CSV of URLs and returns an array.
- * @param {string} textareaContent
- */
-function siteToArray(textareaContent) {
-    comSepStr = textareaContent.split(",");
-    return comSepStr;
 }
