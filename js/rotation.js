@@ -80,6 +80,21 @@ function toggleLockstate(event) {
     }
 }
 
+/**
+ * Infinite loop handling the tab switching process.
+ *  
+ * Repeats - Defunct, amount of times to repeat. Input less than 0 to stop entirely.
+ * 
+ * Count - Number of sites in the rotation.
+ * 
+ * Current - The site currently designated to be shown.
+ * 
+ * Duration - Length of time on the tab.
+ * @param {integer} repeats
+ * @param {integer} count 
+ * @param {integer} current 
+ * @param {integer} duration 
+ */
 function slide(repeats, count, current, duration) {
     nextActive = current + 1;
     if (nextActive > (count -1)) {
@@ -107,6 +122,10 @@ function slide(repeats, count, current, duration) {
     }
 }
 
+/**
+ * Receives a CSV of URLs and returns an array.
+ * @param {string} textareaContent
+ */
 function siteToArray(textareaContent) {
     comSepStr = textareaContent.split(",");
     return comSepStr;
