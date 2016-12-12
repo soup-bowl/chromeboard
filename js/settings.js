@@ -2,8 +2,10 @@ $(document).ready(function() {
     document.getElementById("btnSave").addEventListener("click",goSettings);
     document.getElementById("btnAddEntry").addEventListener("click",AppendSiteInputElement);
 
+    // Register the site list as JQuery UI sortable. 
     $( "#sortable" ).sortable();
 
+    // Show the current settings.
     updatePageWithCurrentPrefs();
 
     // Handler to delete dynamic site inputs.
@@ -12,8 +14,13 @@ $(document).ready(function() {
     });
 });
 
+// Shorthand for Chrome storage commands.
 var storage = chrome.storage.sync;
 
+/**
+ * Collects all the input data from the page and saves it to Chrome sync. Closes the window if in an IFrame.
+ * @param {boolean} save
+ */
 function goSettings(save = true) {
     if (save) {
         var siteEntry = $( "#sortable" ).find("input");
@@ -37,6 +44,11 @@ function goSettings(save = true) {
     }
 }
 
+/**
+ * Stores preferences in Chrome storage.
+ * @param {string} urlCollection
+ * @param {integer} transitionTime
+ */
 function storeUserPrefs(urlCollection = "", transitionTime = 30) {
     storage.clear();
     var key='chromeboardPrefs', testPrefs = 
@@ -49,6 +61,9 @@ function storeUserPrefs(urlCollection = "", transitionTime = 30) {
         });
 }
 
+/**
+ * Updates the DOM with settings retrieved from storage.
+ */
 function updatePageWithCurrentPrefs() {
     var prefs = storage.get('chromeboardPrefs', function (obj) {
         var opt = obj.chromeboardPrefs.urlCol;
@@ -67,15 +82,26 @@ function updatePageWithCurrentPrefs() {
     
 }
 
+/**
+ * Clears the storage area.
+ */
 function purgeUserPrefs() {
     storage.clear();
 }
 
+/**
+ * Receives a CSV of URLs and returns an array.
+ * @param {string} textareaContent
+ */
 function siteToArray(textareaContent) {
     comSepStr = textareaContent.split(",");
     return comSepStr;
 }
 
+/**
+ * Returns a CSV from an array of sites.
+ * @param {array} arr
+ */
 function ArrayToSite(arr) {
     var str = '';
     arr.forEach(function(element) {

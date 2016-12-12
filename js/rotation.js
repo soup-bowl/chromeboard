@@ -1,5 +1,4 @@
 $(document).ready(function() {
-    applyTranslations();
     var opt;
     chrome.storage.sync.get('chromeboardPrefs', function (obj) {
         opt = siteToArray(obj.chromeboardPrefs.urlCol);
@@ -79,18 +78,6 @@ function toggleLockstate(event) {
         
         $('body').append( $('<div/>').addClass("noclick-zone") );
     }
-}
-
-function applyTranslations() {
-    var tsl = chrome.i18n;
-    document.title = tsl.getMessage("appName");
-    document.getElementById("settclick").setAttribute('aria-label', tsl.getMessage("rSettings"));
-    document.getElementById("settclick").title = tsl.getMessage("rSettings");
-
-    document.getElementById("setlockstate").setAttribute('aria-label', tsl.getMessage("rScreenUnlocked"));
-    document.getElementById("setlockstate").title = tsl.getMessage("rScreenUnlocked");
-    document.getElementById("setunlockstate").setAttribute('aria-label', tsl.getMessage("rScreenLocked"));
-    document.getElementById("setunlockstate").title = tsl.getMessage("rScreenLocked");
 }
 
 function slide(repeats, count, current, duration) {
