@@ -1,13 +1,15 @@
 $(document).ready(function() {
     document.getElementById("btnSave").addEventListener("click",goSettings);
     document.getElementById("btnAddEntry").addEventListener("click",AppendSiteInputElement);
-    //document.getElementById("sites").value
 
     $( "#sortable" ).sortable();
 
-    //storage.get('chromeboardPrefs', function (obj) { console.log(obj.chromeboardPrefs) });
-    
     updatePageWithCurrentPrefs();
+
+    // Handler to delete dynamic site inputs.
+    $('body').on('click', 'a.deleteSite', function(e) {
+        removeSiteInputElement(e.target.parentElement.dataset.site);
+    });
 });
 
 var storage = chrome.storage.sync;
@@ -97,7 +99,7 @@ function createSiteInputElement(location, number, site = '') {
         placeholder: 'http://example.com'
     }).wrap('<li>').parent().appendTo(location);
     $('#site' + number).before('<i class="fa fa-arrows-v" aria-hidden="true"></i> - ');
-    $('#site' + number).after(" <a id='deleteSite" + number + "' href='#'><i class='fa fa-minus' aria-hidden='true'></i></a>");
+    $('#site' + number).after(" <a class='deleteSite' data-site='" + number + "' href='#'><i class='fa fa-minus' aria-hidden='true'></i></a>");
 }
 
 /**
@@ -108,6 +110,11 @@ function AppendSiteInputElement() {
     createSiteInputElement('#sortable', (siteEntry + 1));
 }
 
-function removeInputElement(sNo) {
-    // TODO
+/** 
+ * Removes the inputted site number from the list.
+ * @param {integer} sNo Site number (ID of site#)
+ */
+function removeSiteInputElement(sNo) {
+    console.log( sNo );
+    $('#site' + sNo).parent().remove();
 }
