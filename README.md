@@ -1,10 +1,10 @@
 # Chromeboard
 Turn a Chrome installation into a digital signage board. Using a dedicated extension page, the extension will cycle user-selected websites continuously. Intended for wallboards that cycle through pages on display.
 
-![Chromeboard app demonstration](http://i.imgur.com/ua5ieII.gif, "Chromeboard demo gif")
+![Chromeboard app demonstration](http://i.imgur.com/79EK6Hx.gif, "Chromeboard demo gif")
 
 # Installation
-The latest version release (0.1) is currently available in the Chrome store. [Click here to install](https://chrome.google.com/webstore/detail/fdnnlgfgjjjfafmdhkfndhnoboajdpom).
+The latest version release (0.2) is currently available in the Chrome store. [Click here to install](https://chrome.google.com/webstore/detail/fdnnlgfgjjjfafmdhkfndhnoboajdpom).
 
 To test the latest development build extension, installation is relatively simple:
 
@@ -16,7 +16,7 @@ To test the latest development build extension, installation is relatively simpl
 This will allow you to test out the unpacked developer version of the app. Please note this software is in alpha and you may experience issues. Please let me know via GitHub issue tracker and I will have a look accordingly.
 
 # How to Use
-Once installed, a new icon will appear to the right of the Chrome address bar, called 'Chromeboard'. Clicking this will take you to the page scroller. Hidden at the top right on this page is the settings button (also reached via 'Options' in Extensions). Simply add a line break seperated list of sites to the textarea and save, and Chromeboard will show them in a loop.
+Once installed, a new icon will appear to the right of the Chrome address bar, called 'Chromeboard'. Clicking this will take you to the page scroller. Hidden at the top right on this page is the settings button represented by a cog (also reached via 'Options' in Extensions). Click 'Add Entry' and type in a full URL (including HTTP/HTTPS) and save, and Chromeboard will show them in a loop. You can add as many sites to the rotation as you want.
 
 # Known Issues
 ## Some common/popular websites do not show up
