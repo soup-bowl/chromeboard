@@ -51,6 +51,14 @@ $(document).on({
 
 // --  End of lockstate handlers --
 
+// -- Other buttons --
+
+$("#pauserotation").click(function(event) {
+	pause();
+});
+
+// -- End of Other buttons --
+
 /**
  * Opens and closes the modal settings IFrame.
  * @param {event} event
@@ -141,5 +149,18 @@ function rotation(newtab = false) {
 				ROTATION_CURRENT = newtab;
 			}
 		}
+	}
+}
+
+/**
+ * Pauses the rotation.
+ */
+function pause() {
+	ROTATION_PAUSED = (ROTATION_PAUSED) ? false : true;
+
+	if (ROTATION_PAUSED) {
+		$('#floater').removeClass('hidden');
+	} else {
+		$('#floater').addClass('hidden');
 	}
 }

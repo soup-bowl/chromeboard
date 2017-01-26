@@ -19,6 +19,10 @@
 		"message": "Screen is unlocked",
 		"description": "Text label that appears on the lock tooltip when screen is unlocked."
 	},
+	"rScreenPaused": {
+		"message": "Pause rotation",
+		"description": "Hover label for the button that pauses the tab rotation."
+	},
 	"cbSettingsTitle": {
 		"message": "Configuration",
 		"description": "The title of the Chromeboard configuration screen, shown at the top in the black bar. App title is added as a prefix."
