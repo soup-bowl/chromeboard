@@ -61,6 +61,10 @@ $("#resumerotation").click(function(event) {
 	pause();
 });
 
+$("#nextrotation").click(function(event) {
+	rotation();
+});
+
 // -- End of Other buttons --
 
 /**
@@ -169,7 +173,7 @@ function pause() {
 		$('#resumerotation').removeClass('hidden');
 	} else {
 		$('#floater').addClass('hidden');
-		
+
 		$('#pauserotation').removeClass('hidden');
 		$('#resumerotation').addClass('hidden');
 	}
