@@ -1,66 +1,66 @@
 {
-  "appName": {
-    "message": "Chromeboard",
-    "description": "The title of the application, displayed in the web store."
-  },
-  "appDesc": {
-    "message": "Turn a Chrome installation into a digital signage board.", 
-    "description":"The description of the application, displayed in the web store."
-  },
-  "rSettings": {
-    "message": "Settings",
-    "description": "Text label that appears at the top right."
-  },
-  "rScreenLocked": {
-    "message": "Screen is locked",
-    "description": "Text label that appears on the lock tooltip when screen is locked."
-  },
-  "rScreenUnlocked": {
-    "message": "Screen is unlocked",
-    "description": "Text label that appears on the lock tooltip when screen is unlocked."
-  },
-  "cbSettingsTitle": {
-    "message": "Configuration",
-    "description": "The title of the Chromeboard configuration screen, shown at the top in the black bar. App title is added as a prefix."
-  },
-  "cbSettingsSiteRotation": {
-    "message": "Site Rotation (seperated by commas)",
-    "description": "The settings option that lets users define sites for rotation."
-  },
-  "cbSettingsSiteRotationWarning": {
-    "message": "Websites can be configured to block the embedding of their content outside of the original website. This can cause some websites not to show up.",
-    "description": "The settings warning shown informing users about SAMEORIGIN."
-  },
-  "cbSettingsSiteTransitionTime": {
-    "message": "Transition Time (seconds)",
-    "description": "The settings option that lets users define the tab transition time."
-  },
-  "cbSettingsSiteSubmit": {
-    "message": "Submit",
-    "description": "The settings save button."
-  },
-  "cbBlankingTitle": {
-    "message": "Blanking page", 
-    "description":"Title of the blank site box warning page."
-  },
-  "cbBlankingHeadline": {
-    "message": "No sites", 
-    "description":"Headline shown if the user does not have any websites selected."
-  },
-  "cbBlankingDesc": {
-    "message": "There are currently no sites in the queue. To add to the site rotation:", 
-    "description":"Short description shown if the user does not have any websites selected."
-  },
-  "cbBlankingBullet1": {
-    "message": "Click the cogwheel at the top right of this page.", 
-    "description":"First bullet shown if the user does not have any websites selected."
-  },
-  "cbBlankingBullet2": {
-    "message": "Right-click the Chromeboard icon and select 'Options'.", 
-    "description":"Second bullet shown if the user does not have any websites selected."
-  },
-  "cbBlankingBullet3": {
-    "message": "Select 'Options' on the Chromeboard entry in Extensions.", 
-    "description":"Third bullet shown if the user does not have any websites selected."
-  }
+	"appName": {
+		"message": "Chromeboard",
+		"description": "The title of the application, displayed in the web store."
+	},
+	"appDesc": {
+		"message": "Turn a Chrome installation into a digital signage board.", 
+		"description":"The description of the application, displayed in the web store."
+	},
+	"rSettings": {
+		"message": "Settings",
+		"description": "Text label that appears at the top right."
+	},
+	"rScreenLocked": {
+		"message": "Screen is locked",
+		"description": "Text label that appears on the lock tooltip when screen is locked."
+	},
+	"rScreenUnlocked": {
+		"message": "Screen is unlocked",
+		"description": "Text label that appears on the lock tooltip when screen is unlocked."
+	},
+	"cbSettingsTitle": {
+		"message": "Configuration",
+		"description": "The title of the Chromeboard configuration screen, shown at the top in the black bar. App title is added as a prefix."
+	},
+	"cbSettingsSiteRotation": {
+		"message": "Site Rotation (seperated by commas)",
+		"description": "The settings option that lets users define sites for rotation."
+	},
+	"cbSettingsSiteRotationWarning": {
+		"message": "Websites can be configured to block the embedding of their content outside of the original website. This can cause some websites not to show up.",
+		"description": "The settings warning shown informing users about SAMEORIGIN."
+	},
+	"cbSettingsSiteTransitionTime": {
+		"message": "Transition Time (seconds)",
+		"description": "The settings option that lets users define the tab transition time."
+	},
+	"cbSettingsSiteSubmit": {
+		"message": "Submit",
+		"description": "The settings save button."
+	},
+	"cbBlankingTitle": {
+		"message": "Blanking page", 
+		"description":"Title of the blank site box warning page."
+	},
+	"cbBlankingHeadline": {
+		"message": "No sites", 
+		"description":"Headline shown if the user does not have any websites selected."
+	},
+	"cbBlankingDesc": {
+		"message": "There are currently no sites in the queue. To add to the site rotation:", 
+		"description":"Short description shown if the user does not have any websites selected."
+	},
+	"cbBlankingBullet1": {
+		"message": "Click the cogwheel at the top right of this page.", 
+		"description":"First bullet shown if the user does not have any websites selected."
+	},
+	"cbBlankingBullet2": {
+		"message": "Right-click the Chromeboard icon and select 'Options'.", 
+		"description":"Second bullet shown if the user does not have any websites selected."
+	},
+	"cbBlankingBullet3": {
+		"message": "Select 'Options' on the Chromeboard entry in Extensions.", 
+		"description":"Third bullet shown if the user does not have any websites selected."
+	}
 }
