@@ -43,8 +43,6 @@ iframe {
 
 .settings-button {
 	position: absolute;
-	top: 0;
-	right: 0;  
 	padding: 0.5em;
 	background-color: black;
 	opacity: 0.01;
@@ -62,6 +60,26 @@ iframe {
 
 	.hidden {
 		display: none;
+	}
+
+	&.topright {
+		top: 0;
+		right: 0;  
+	}
+
+	&.topleft {
+		top: 0;
+		left: 0;  
+	}
+
+	&.bottomleft {
+		bottom: 0;
+		left: 0;  
+	}
+
+	&.bottomright {
+		bottom: 0;
+		right: 0;  
 	}
 }
 

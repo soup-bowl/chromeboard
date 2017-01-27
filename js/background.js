@@ -10,7 +10,8 @@ chrome.runtime.onInstalled.addListener(function(details){
 		chrome.storage.sync.set({
 				"chromeboardPrefs": {
 					'urlCol':[],
-					'transitionTime': 30 
+					'transitionTime': 30,
+					'dockPlacement': 2
 				}
 			}, function() {});
 	}

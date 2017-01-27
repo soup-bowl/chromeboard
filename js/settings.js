@@ -25,7 +25,8 @@ function goSettings(save = true) {
 	if (save) {
 		var siteEntry = $( "#sortable" ).find("input");
 		var siteCollection = [];
-		
+		var dockPosDropdown = document.getElementById("dockplacement");
+
 		$.each(siteEntry, function( index, value ) {
 			if (value.value != "") {
 				siteCollection.push(value.value);
@@ -34,7 +35,8 @@ function goSettings(save = true) {
 
 		storeUserPrefs( 
 			siteCollection,
-			document.getElementById("transition").value
+			document.getElementById("transition").value,
+			dockPosDropdown.options[dockPosDropdown.selectedIndex].value
 		);
 	}
 
@@ -47,13 +49,15 @@ function goSettings(save = true) {
  * Stores preferences in Chrome storage.
  * @param {string} urlCollection
  * @param {integer} transitionTime
+ * @param {integer} dockPlacement
  */
-function storeUserPrefs(urlCollection = "", transitionTime = 30) {
+function storeUserPrefs(urlCollection = "", transitionTime = 30, dockPlacement = 2) {
 	storage.clear();
 	var key='chromeboardPrefs', testPrefs = 
 	{
 		'urlCol': urlCollection,
-		'transitionTime': transitionTime 
+		'transitionTime': transitionTime,
+		'dockPlacement': dockPlacement
 	};
 		storage.set({"chromeboardPrefs": testPrefs}, function() {
 			//console.log('Saved', key, testPrefs);
@@ -76,6 +80,15 @@ function updatePageWithCurrentPrefs() {
 		}
 
 		document.getElementById("transition").value = obj.chromeboardPrefs.transitionTime;
+
+		var dockPosDropdown = document.getElementById('dockplacement');
+		var opts = dockPosDropdown.options.length;
+		for (var i = 0; i < opts; i++){
+			if (dockPosDropdown.options[i].value == obj.chromeboardPrefs.dockPlacement){
+				dockPosDropdown.options[i].selected = true;
+				break; // No point finishing.
+			}
+		}
 	});
 	
 }

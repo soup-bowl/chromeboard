@@ -16,6 +16,8 @@ $(document).ready(function() {
 		} else {
 			$("#site-collection").append("<iframe id=\"site-1\" src=\"blankingpage.html\" class=\"active\"></iframe>");
 		}
+		
+		dockPosition(obj.chromeboardPrefs.dockPlacement);
 
 		slide(10, obj.chromeboardPrefs.transitionTime);
 	});
@@ -176,5 +178,31 @@ function pause() {
 
 		$('#pauserotation').removeClass('hidden');
 		$('#resumerotation').addClass('hidden');
+	}
+}
+
+/**
+ * Change the dock position.
+ * @param {integer} posId Numeric corners, clockwise around screen.
+ */
+function dockPosition(posId = 2) {
+	$('#settings-tray').removeClass('topright topleft bottomleft bottomright');
+	switch (parseInt(posId)) {
+		case 1:
+			$('#settings-tray').addClass('topleft');
+			return true;
+		case 2:
+			$('#settings-tray').addClass('topright');
+			return true;
+		case 3:
+			$('#settings-tray').addClass('bottomleft');
+			return true;
+		case 4:
+			$('#settings-tray').addClass('bottomright');
+			return true;	
+		default:
+			console.log('Invalid position ID of ' + posId + ' supplied. Default position used.');
+			$('#settings-tray').addClass('topright');
+			return true;	
 	}
 }
