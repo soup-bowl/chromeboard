@@ -4,7 +4,7 @@ Turn a Chrome installation into a digital signage board. Using a dedicated exten
 ![Chromeboard app demonstration](http://i.imgur.com/79EK6Hx.gif, "Chromeboard demo gif")
 
 # Installation
-The latest version release (0.2) is currently available in the Chrome store. [Click here to install](https://chrome.google.com/webstore/detail/fdnnlgfgjjjfafmdhkfndhnoboajdpom).
+The latest version release (0.3.2) is currently available in the Chrome store. [Click here to install](https://chrome.google.com/webstore/detail/fdnnlgfgjjjfafmdhkfndhnoboajdpom).
 
 To test the latest development build extension, installation is relatively simple:
 
