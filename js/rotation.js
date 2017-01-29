@@ -11,10 +11,10 @@ $(document).ready(function() {
 		
 		if (opt.length > 0 && opt != "") {
 			for (var i = 0; i < opt.length; i++) {
-				$("#site-collection").append("<iframe id=\"site-" + (i + 1) + "\" src=\"" + opt[i] + "\"></iframe>");
+				createFrame((i + 1), opt[i]);
 			}
 		} else {
-			$("#site-collection").append("<iframe id=\"site-1\" src=\"blankingpage.html\" class=\"active\"></iframe>");
+			createFrame();
 		}
 		
 		dockPosition(obj.chromeboardPrefs.dockPlacement);
@@ -205,4 +205,27 @@ function dockPosition(posId = 2) {
 			$('#settings-tray').addClass('topright');
 			return true;	
 	}
+}
+
+/**
+ * Creates an IFrame in the site-collection ID. No arguments creates an example tab.
+ * @param {integer} $id 
+ * @param {string} $url
+ */
+function createFrame(id = -1, url = null) {
+	var newFrame = document.createElement('iframe');
+	newFrame.id = "site-" + id;
+	newFrame.setAttribute("src", url);
+	newFrame.setAttribute("sandbox", "allow-forms allow-same-origin allow-scripts");
+
+	if (id !== -1) {
+		newFrame.id = "site-" + id;
+		newFrame.setAttribute("src", url);
+	} else {
+		newFrame.id = "site-1";
+		newFrame.setAttribute("src", "blankingpage.html");
+		newFrame.setAttribute("class", "active");
+	}
+	
+	document.getElementById("site-collection").appendChild(newFrame);
 }
