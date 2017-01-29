@@ -1,5 +1,6 @@
 $(document).ready(function() {
 	document.getElementById("btnSave").addEventListener("click",goSettings);
+	document.getElementById("btnReset").addEventListener("click",goReset);
 	document.getElementById("btnAddEntry").addEventListener("click",AppendSiteInputElement);
 
 	// Register the site list as JQuery UI sortable. 
@@ -42,6 +43,20 @@ function goSettings(save = true) {
 
 	if (window.frameElement) {
 		parent.toggleSettingsFrame(event);
+	}
+}
+
+/**
+ * Resets the tool back to factory settings.
+ */
+function goReset() {
+	var confirm = window.confirm( chrome.i18n.getMessage('cbSettingsSiteResetDialog') );
+
+	if (confirm) {
+		storage.clear();
+		storeUserPrefs([], 30, 2);
+	} else {
+		return false;
 	}
 }
 

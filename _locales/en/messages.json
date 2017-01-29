@@ -51,6 +51,14 @@
 		"message": "Submit",
 		"description": "The settings save button."
 	},
+	"cbSettingsSiteReset": {
+		"message": "Reset",
+		"description": "The label for the button that resets the user storage for the application."
+	},
+	"cbSettingsSiteResetDialog": {
+		"message": "Do you wish to reset your data? This will reset the tool back to factory settings and is irreversible.",
+		"description": "Warning dialog that asks the user for confirmation before resetting data."
+	},
 	"cbBlankingTitle": {
 		"message": "Blanking page", 
 		"description":"Title of the blank site box warning page."
