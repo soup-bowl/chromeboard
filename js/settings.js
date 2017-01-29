@@ -1,6 +1,6 @@
 $(document).ready(function() {
-	document.getElementById("btnSave").addEventListener("click",goSettings);
-	document.getElementById("btnReset").addEventListener("click",goReset);
+	document.getElementById("btnSave").addEventListener("click",saveSettings);
+	document.getElementById("btnReset").addEventListener("click",resetSettings);
 	document.getElementById("btnAddEntry").addEventListener("click",AppendSiteInputElement);
 
 	// Register the site list as JQuery UI sortable. 
@@ -22,7 +22,7 @@ var storage = chrome.storage.sync;
  * Collects all the input data from the page and saves it to Chrome sync. Closes the window if in an IFrame.
  * @param {boolean} save
  */
-function goSettings(save = true) {
+function saveSettings(save = true) {
 	if (save) {
 		var siteEntry = $( "#sortable" ).find("input");
 		var siteCollection = [];
@@ -49,7 +49,7 @@ function goSettings(save = true) {
 /**
  * Resets the tool back to factory settings.
  */
-function goReset() {
+function resetSettings() {
 	var confirm = window.confirm( chrome.i18n.getMessage('cbSettingsSiteResetDialog') );
 
 	if (confirm) {
