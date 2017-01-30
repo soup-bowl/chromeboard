@@ -11,7 +11,13 @@ $(document).ready(function() {
 		
 		if (opt.length > 0 && opt != "") {
 			for (var i = 0; i < opt.length; i++) {
-				createFrame((i + 1), opt[i]);
+				if(typeof opt === 'object') {
+					// New format save.
+					createFrame((i + 1), opt[i].url);
+				} else {
+					// Old format save.
+					createFrame((i + 1), opt[i]);
+				}
 			}
 		} else {
 			createFrame();

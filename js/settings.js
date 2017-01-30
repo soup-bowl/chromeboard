@@ -30,7 +30,9 @@ function saveSettings(save = true) {
 
 		$.each(siteEntry, function( index, value ) {
 			if (value.value != "") {
-				siteCollection.push(value.value);
+				var siteConfig = new Object;
+				siteConfig.url = value.value;
+				siteCollection.push(siteConfig);
 			}
 		});
 
@@ -87,9 +89,18 @@ function updatePageWithCurrentPrefs() {
 		var opt = obj.chromeboardPrefs.urlCol;
 			
 		if (opt != "") {
-			$.each(opt, function( index, value ) {
-				createSiteInputElement('#sortable', index, value)
-			});
+			if(typeof opt === 'object') {
+				// New format save.
+				$.each(opt, function( index, value ) {
+					createSiteInputElement('#sortable', index, value.url)
+				});
+			} else {
+				// Old format save.
+				$.each(opt, function( index, value ) {
+					createSiteInputElement('#sortable', index, value)
+				});
+			}
+			
 		} else {
 			createSiteInputElement('#sortable', 1);
 		}
