@@ -6,6 +6,8 @@ Turn a Chrome installation into a digital signage board. Using a dedicated exten
 # Installation
 The latest version release (0.3.2) is currently available in the Chrome store. [Click here to install](https://chrome.google.com/webstore/detail/fdnnlgfgjjjfafmdhkfndhnoboajdpom).
 
+[![Available on the Chrome Store][2]][1]
+
 To test the latest development build extension, installation is relatively simple:
 
 1. Download the zip of this project and extract where desired.
@@ -42,3 +44,6 @@ This will open Chrome/Chromium in kiosk mode, and hopefully open the rotation pa
 ___
 
 This project is licensed under MIT, so please feel free to do what you wish. If you would like to see improvements or new features, please feel free to submit an issue, fork or submit a pull request.
+
+  [1]: https://chrome.google.com/webstore/detail/fdnnlgfgjjjfafmdhkfndhnoboajdpom
+  [2]: https://developer.chrome.com/webstore/images/ChromeWebStore_BadgeWBorder_v2_340x96.png (Available on the Chrome Store)
