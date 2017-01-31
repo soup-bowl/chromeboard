@@ -1,4 +1,5 @@
 // Global rotation variables.
+var ROTATION_OBJ     = "";
 var ROTATION_CURRENT = -1;
 var ROTATION_TOTAL   = 0;
 var ROTATION_PAUSED  = false;
@@ -6,17 +7,17 @@ var ROTATION_PAUSED  = false;
 $(document).ready(function() {
 	var opt;
 	chrome.storage.sync.get('chromeboardPrefs', function (obj) {
-		opt = obj.chromeboardPrefs.urlCol;
-		ROTATION_TOTAL = opt.length;
+		ROTATION_OBJ = obj.chromeboardPrefs;
+		ROTATION_TOTAL = obj.chromeboardPrefs.urlCol.length;
 		
-		if (opt.length > 0 && opt != "") {
-			for (var i = 0; i < opt.length; i++) {
-				if(typeof opt === 'object') {
+		if (ROTATION_OBJ.urlCol.length > 0 && ROTATION_OBJ.urlCol != "") {
+			for (var i = 0; i < ROTATION_OBJ.urlCol.length; i++) {
+				if(typeof ROTATION_OBJ.urlCol === 'object') {
 					// New format save.
-					createFrame((i + 1), opt[i].url);
+					createFrame((i + 1), ROTATION_OBJ.urlCol[i].url);
 				} else {
 					// Old format save.
-					createFrame((i + 1), opt[i]);
+					createFrame((i + 1), ROTATION_OBJ.urlCol[i]);
 				}
 			}
 		} else {
@@ -138,7 +139,8 @@ function slide(repeats, duration) {
  * @param {integer} newtab If unchanged, goes to next in line.
  */
 function rotation(newtab = false) {
-	nextActive = ROTATION_CURRENT + 1;
+	originalTab = ROTATION_CURRENT; // Current identifier, for refreshing later.
+	nextActive = ROTATION_CURRENT + 1; // The new tab that's being shown.
 	if (nextActive > (ROTATION_TOTAL - 1)) {
 		nextActive = 0;
 	}
@@ -165,6 +167,10 @@ function rotation(newtab = false) {
 				ROTATION_CURRENT = newtab;
 			}
 		}
+	}
+
+	if (ROTATION_OBJ.urlCol[originalTab] != null && ROTATION_OBJ.urlCol[originalTab].bgRef) {
+		refresh((originalTab + 1));
 	}
 }
 
@@ -234,4 +240,28 @@ function createFrame(id = -1, url = null) {
 	}
 	
 	document.getElementById("site-collection").appendChild(newFrame);
+}
+
+/**
+ * Reloads the specific rotation page.
+ * @param {integer} siteId The on-screen ID of the frame in question.
+ */
+function refresh(siteId) {
+	var iframe = document.getElementById('site-' + siteId);
+	iframe.src = iframe.src;
+}
+
+/**
+ * Finds a specific URL object from an array collection.
+ * @param {string} url
+ * @param {array} objectCollection
+ */
+function findURLObjectInArray(url, objectCollection) {
+	for (var i = 0; i < objectCollection.length; i++) {
+        if (objectCollection[i].url === url) {
+            return objectCollection[i];
+        }
+    }
+
+	return false;
 }

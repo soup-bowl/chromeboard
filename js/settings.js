@@ -24,7 +24,7 @@ var storage = chrome.storage.sync;
  */
 function saveSettings(save = true) {
 	if (save) {
-		var siteEntry = $( "#sortable" ).find("input");
+		var siteEntry = $( "#sortable" ).find(".siteURLInput");
 		var siteCollection = [];
 		var dockPosDropdown = document.getElementById("dockplacement");
 
@@ -32,6 +32,7 @@ function saveSettings(save = true) {
 			if (value.value != "") {
 				var siteConfig = new Object;
 				siteConfig.url = value.value;
+				siteConfig.bgRef = document.getElementById("bgRef" + index).checked;
 				siteCollection.push(siteConfig);
 			}
 		});
@@ -92,7 +93,7 @@ function updatePageWithCurrentPrefs() {
 			if(typeof opt === 'object') {
 				// New format save.
 				$.each(opt, function( index, value ) {
-					createSiteInputElement('#sortable', index, value.url)
+					createSiteInputElement('#sortable', index, value.url, value.bgRef)
 				});
 			} else {
 				// Old format save.
@@ -132,15 +133,19 @@ function purgeUserPrefs() {
  * @param {integer} number
  * @param {string} site
  */
-function createSiteInputElement(location, number, site = '') {
+function createSiteInputElement(location, number, site = '', backgroundRefresh = false) {
+	var refChkCheckState = (backgroundRefresh) ? 'checked="checked"' : '';
+	var refreshCheck = '<input id="bgRef' + number + '" data-site="' + number + '" type="checkbox" ' + refChkCheckState + '><label for="bgRef' + number + '">Background Refresh</label>';
+	
 	$('<input>', {
 		id: 'site' + number,
 		type: 'text',
 		value: site,
-		placeholder: 'http://example.com'
+		placeholder: 'http://example.com',
+		class: 'siteURLInput'
 	}).wrap('<li>').parent().appendTo(location);
 	$('#site' + number).before('<i class="fa fa-arrows-v" aria-hidden="true"></i> - ');
-	$('#site' + number).after(" <a class='deleteSite' data-site='" + number + "' href='#'><i class='fa fa-minus' aria-hidden='true'></i></a>");
+	$('#site' + number).after(refreshCheck + " <a class='deleteSite' data-site='" + number + "' href='#'><i class='fa fa-minus' aria-hidden='true'></i></a>");
 }
 
 /**
