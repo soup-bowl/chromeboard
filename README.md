@@ -34,7 +34,13 @@ This is a known issue with the extension itself ([#15](https://github.com/soup-b
 ## How can I use this headless (kiosk) on a single-purpose device?
 Once the extension is installed, clicking on the icon takes you to the tab rotation page. Drag the app page icon (to the right of 'chrome-extension', a circle with an i in it) to the home button to set it as your homepage, or alternatively copy the address and set it as your homepage in options. Now when you re-open Chrome, it should immediately go to the tab rotation page.
 
-Now for a Linux machine, create a shell script to execute the following command (assumed Chromium, change if necessary).
+For Windows, create a batch script (wallboard.bat) and store this command in it. Since Chrome is not stored in the global path, you will need to add either chrome to the user/system path variable, or store the full path of chrome.exe in the batch script like so:
+
+```batch
+"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" -kiosk --disable-session-crashed-bubble --disable-infobars
+```
+
+Alternatively, for a Linux machine, create a shell script to execute the following command (assumed Chromium, change if necessary).
 
 ```bash
 chromium-browser -kiosk --disable-session-crashed-bubble --disable-infobars
