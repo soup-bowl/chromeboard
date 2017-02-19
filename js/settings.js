@@ -32,7 +32,7 @@ function saveSettings(save = true) {
 			if (value.value != "") {
 				var siteConfig = new Object;
 				siteConfig.url = value.value;
-				siteConfig.bgRef = document.getElementById("bgRef" + index).checked;
+				siteConfig.bgRef = document.getElementById("bgRef" + value.id.substring(4)).checked;
 				siteCollection.push(siteConfig);
 			}
 		});
@@ -93,7 +93,7 @@ function updatePageWithCurrentPrefs() {
 			if(typeof opt === 'object') {
 				// New format save.
 				$.each(opt, function( index, value ) {
-					createSiteInputElement('#sortable', index, value.url, value.bgRef)
+					createSiteInputElement('#sortable', (index + 1), value.url, value.bgRef)
 				});
 			} else {
 				// Old format save.
@@ -152,7 +152,8 @@ function createSiteInputElement(location, number, site = '', backgroundRefresh =
  * Finds the last numeric entry on-screen, and adds a new site. Uses createSiteInputElement.
  */
 function AppendSiteInputElement() {
-	var siteEntry = $( "#sortable" ).find("input").length;
+	var siteEntry = $( "#sortable" ).find(".siteURLInput").length;
+	console.log(siteEntry);
 	createSiteInputElement('#sortable', (siteEntry + 1));
 }
 
