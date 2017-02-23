@@ -1,6 +1,3 @@
-# Chromeboard
-### Turn a Chrome installation into a digital signage board. 
-
 ![Chromeboard app demonstration](https://soup-bowl.github.io/Chromeboard/example/79EK6Hx.gif)
 
 Using a dedicated extension page, the extension will cycle user-selected websites continuously. Intended for wallboards that cycle through pages on display.
