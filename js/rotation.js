@@ -9,6 +9,10 @@ $(document).ready(function() {
 	chrome.storage.sync.get('chromeboardPrefs', function (obj) {
 		ROTATION_OBJ = obj.chromeboardPrefs;
 		ROTATION_TOTAL = obj.chromeboardPrefs.urlCol.length;
+
+		if (ROTATION_OBJ.password === false) {
+			document.getElementById("pswdUnlock").remove();
+		}
 		
 		if (ROTATION_OBJ.urlCol.length > 0 && ROTATION_OBJ.urlCol != "") {
 			for (var i = 0; i < ROTATION_OBJ.urlCol.length; i++) {
@@ -99,10 +103,21 @@ function toggleSettingsFrame(event) {
 function toggleLockstate(event) {
 	event.preventDefault();
 	if( $('#sb-unlocked').hasClass('hidden') ) {
-		$('#sb-unlocked').removeClass('hidden');
-		$('#sb-locked').addClass('hidden');
+		if (ROTATION_OBJ.password !== false) {
+			if (ROTATION_OBJ.password === document.getElementById("pswdUnlock").value) {
+				$('#sb-unlocked').removeClass('hidden');
+				$('#sb-locked').addClass('hidden');
 
-		$('.noclick-zone').remove();
+				$('.noclick-zone').remove();
+				
+				document.getElementById("pswdUnlock").value = "";
+			}
+		} else {
+			$('#sb-unlocked').removeClass('hidden');
+			$('#sb-locked').addClass('hidden');
+
+			$('.noclick-zone').remove();
+		}
 	} else {
 		$('#sb-unlocked').addClass('hidden');
 		$('#sb-locked').removeClass('hidden');

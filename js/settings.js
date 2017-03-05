@@ -27,6 +27,10 @@ function saveSettings(save = true) {
 		var siteEntry = $( "#sortable" ).find(".siteURLInput");
 		var siteCollection = [];
 		var dockPosDropdown = document.getElementById("dockplacement");
+		var passProtection = {
+			enabled: document.getElementById("passwordProtectionOn").checked,
+			value: document.getElementById("passwordProtectionPass").value
+		};
 
 		$.each(siteEntry, function( index, value ) {
 			if (value.value != "") {
@@ -40,7 +44,8 @@ function saveSettings(save = true) {
 		storeUserPrefs( 
 			siteCollection,
 			document.getElementById("transition").value,
-			dockPosDropdown.options[dockPosDropdown.selectedIndex].value
+			dockPosDropdown.options[dockPosDropdown.selectedIndex].value,
+			(passProtection.enabled === true) ? passProtection.value : false
 		);
 	}
 
@@ -68,14 +73,16 @@ function resetSettings() {
  * @param {string} urlCollection
  * @param {integer} transitionTime
  * @param {integer} dockPlacement
+ * @param {string} password
  */
-function storeUserPrefs(urlCollection = "", transitionTime = 30, dockPlacement = 2) {
+function storeUserPrefs(urlCollection = "", transitionTime = 30, dockPlacement = 2, password = false) {
 	storage.clear();
 	var key='chromeboardPrefs', testPrefs = 
 	{
 		'urlCol': urlCollection,
 		'transitionTime': transitionTime,
-		'dockPlacement': dockPlacement
+		'dockPlacement': dockPlacement,
+		'password': password
 	};
 		storage.set({"chromeboardPrefs": testPrefs}, function() {
 			//console.log('Saved', key, testPrefs);
@@ -106,8 +113,14 @@ function updatePageWithCurrentPrefs() {
 			createSiteInputElement('#sortable', 1);
 		}
 
+		console.log();
 		document.getElementById("transition").value = obj.chromeboardPrefs.transitionTime;
 
+		if (typeof(obj.chromeboardPrefs.password) != 'undefined') {
+			document.getElementById("passwordProtectionOn").checked = (obj.chromeboardPrefs.password !== false) ? true : false;
+			document.getElementById("passwordProtectionPass").value = (obj.chromeboardPrefs.password !== false) ? obj.chromeboardPrefs.password : "";
+		}
+		
 		var dockPosDropdown = document.getElementById('dockplacement');
 		var opts = dockPosDropdown.options.length;
 		for (var i = 0; i < opts; i++){
@@ -164,4 +177,15 @@ function AppendSiteInputElement() {
 function removeSiteInputElement(sNo) {
 	console.log( sNo );
 	$('#site' + sNo).parent().remove();
+}
+
+/**
+ * Debug feature to display the current setting configuration in the console.
+ */
+function dumpSettings() {
+	storage.get('chromeboardPrefs', function (obj) { 
+		console.log(obj.chromeboardPrefs);
+	});
+
+	return true;
 }
